@@ -10,3 +10,4 @@ Ouais.
 
 à faire sur godot :
 vue (2d ou 3d ?)
+s
