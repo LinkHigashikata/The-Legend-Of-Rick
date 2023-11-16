@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://bp8dvv2ergvet"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_680kk"]
+[ext_resource type="Texture2D" uid="uid://2ya1gd865uiq" path="res://assets/rick_dos.png" id="2_n3ve0"]
+[ext_resource type="Texture2D" uid="uid://djyt54vep0moj" path="res://assets/rick_dos1.png" id="3_o0bkp"]
+[ext_resource type="Texture2D" uid="uid://5agww88ognur" path="res://assets/rick_dos2.png" id="4_d7tqh"]
+[ext_resource type="Texture2D" uid="uid://ox74bgnmvj7c" path="res://assets/rick.png" id="5_so7uy"]
+[ext_resource type="Texture2D" uid="uid://61p3170dma1t" path="res://assets/rick1.png" id="6_8fskj"]
+[ext_resource type="Texture2D" uid="uid://b2heulavvv2nb" path="res://assets/rick2.png" id="7_tnugk"]
+[ext_resource type="Texture2D" uid="uid://cjvr5xsykwpbl" path="res://assets/rick_cote.png" id="8_o7h8o"]
+[ext_resource type="Texture2D" uid="uid://c6k4xl61l8787" path="res://assets/rick_cote1.png" id="9_v8vit"]
+[ext_resource type="Texture2D" uid="uid://bfqxw7htnwg28" path="res://assets/rick_cote2.png" id="10_pytso"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2bvmn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n3ve0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o0bkp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_n3ve0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_d7tqh")
+}],
+"loop": true,
+"name": &"walk_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_so7uy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8fskj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_so7uy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tnugk")
+}],
+"loop": true,
+"name": &"walk_forward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_o7h8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v8vit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_o7h8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pytso")
+}],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdgin"]
+radius = 8.0
+height = 20.0
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_680kk")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_2bvmn")
+animation = &"walk_side"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_gdgin")
