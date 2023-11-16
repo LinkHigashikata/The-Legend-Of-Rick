@@ -17,7 +17,7 @@ func process(delta):
 	elif Input.is_action_just_pressed("go_up"):
 		velocity.y += 1
 		
-	if velocity.lenght() > 0:
+	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed;
 		$AnimatedSprite2D.play()
 	else:
