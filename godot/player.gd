@@ -17,3 +17,11 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
+		
+	if velocity.x != 0:
+		$AnimatedSprite2D.animation = "walk_side"
+		$AnimatedSprite2D.flip_h = velocity.x > 0
+	elif velocity.y > 0:
+		$AnimatedSprite2D.animation = "walk_forward"
+	elif velocity.y < 0:
+		$AnimatedSprite2D.animation = "walk_back"
