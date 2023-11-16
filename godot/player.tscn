@@ -66,18 +66,22 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdgin"]
-radius = 8.0
-height = 20.0
+radius = 29.0
+height = 86.0
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(4, 10)
 script = ExtResource("1_680kk")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(45, 45)
+scale = Vector2(3.8125, 3.8125)
 sprite_frames = SubResource("SpriteFrames_2bvmn")
 animation = &"walk_side"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(50, 40)
 shape = SubResource("CapsuleShape2D_gdgin")
