@@ -10,7 +10,7 @@ func handleInput():
 	var moveDirection = Input.get_vector("go_left", "go_right", "go_up", "go_down")
 	velocity = moveDirection * speed
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	handleInput()
 	move_and_slide()
 	if velocity.length() > 0:
