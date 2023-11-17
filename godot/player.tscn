@@ -66,11 +66,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdgin"]
-radius = 32.0
-height = 86.0
+radius = 27.0
+height = 54.0
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(-11, 4)
+position = Vector2(-3, 13)
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_680kk")
 speed = 250
@@ -85,5 +85,5 @@ animation = &"walk_forward"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(43, 40)
+position = Vector2(43, 60)
 shape = SubResource("CapsuleShape2D_gdgin")
