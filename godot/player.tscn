@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bp8dvv2ergvet"]
+[gd_scene load_steps=13 format=3 uid="uid://bp8dvv2ergvet"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_680kk"]
 [ext_resource type="Texture2D" uid="uid://2ya1gd865uiq" path="res://assets/rick_dos.png" id="2_n3ve0"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cjvr5xsykwpbl" path="res://assets/rick_cote.png" id="8_o7h8o"]
 [ext_resource type="Texture2D" uid="uid://c6k4xl61l8787" path="res://assets/rick_cote1.png" id="9_v8vit"]
 [ext_resource type="Texture2D" uid="uid://bfqxw7htnwg28" path="res://assets/rick_cote2.png" id="10_pytso"]
-[ext_resource type="Script" path="res://scenes/Camera_player.gd" id="11_bncq5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2bvmn"]
 animations = [{
@@ -89,10 +88,3 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(43, 65)
 shape = SubResource("CapsuleShape2D_gdgin")
-
-[node name="Camera_player" type="Camera2D" parent="." node_paths=PackedStringArray("tilemap")]
-limit_smoothed = true
-position_smoothing_enabled = true
-editor_draw_screen = false
-script = ExtResource("11_bncq5")
-tilemap = NodePath("")
