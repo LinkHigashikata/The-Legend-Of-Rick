@@ -11,7 +11,7 @@
             "id": "bc050a2bdf0cea8d",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {}
             }
           }
@@ -140,6 +140,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "publish:Publish changes...": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -150,21 +151,22 @@
   },
   "active": "bc050a2bdf0cea8d",
   "lastOpenFiles": [
-    "Zones/Plaines du So-do-I.md",
+    "Zones/Montagnes du Nôrd.md",
     "Zones/Ile de Mouzanne.md",
+    "Donjons/Donjon Céleste.md",
+    "Donjons/Donjon souterrain.md",
+    "Zones/Plaines du So-do-I.md",
     "Zones/Sillage de l'Île.md",
     "Villages/Village du Nôrd.md",
     "Villages/Village du bord du lac.md",
     "Villages/Village de la fôret.md",
     "Villages/Camp.md",
-    "Donjons/Donjon souterrain.md",
     "Donjons/Château de Mouzanne.md",
     "Zones/Vallée de la muerte.md",
     "Donjons/Volcan.md",
     "Donjons/Temple enfoui.md",
     "Zones/Grand Lac.md",
     "Zones/Plaines et ruines du nord-ouest.md",
-    "Donjons/Montagnes du nord.md",
     "Donjons/Grand cratère.md",
     "Zones/Pompéï-like.md",
     "Villages",
