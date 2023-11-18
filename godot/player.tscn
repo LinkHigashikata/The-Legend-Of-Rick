@@ -66,8 +66,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdgin"]
-radius = 23.6667
-height = 54.0
+radius = 20.3333
+height = 40.6667
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 3
@@ -86,5 +86,5 @@ animation = &"walk_forward"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(43, 60)
+position = Vector2(43, 65)
 shape = SubResource("CapsuleShape2D_gdgin")
