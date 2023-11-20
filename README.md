@@ -1,6 +1,6 @@
 # The-Legend-Of-Rick
 
-Projet même pas encore débuté MAIS il le sera no problem.
+Projet débuté...
 
 Il le sera mais après Noël je pense.
 
