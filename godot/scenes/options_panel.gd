@@ -3,7 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$VBoxContainer1/Start.grab_focus()
+	$"VBoxContainer1/global settings".grab_focus()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
