@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjl3ymy6w4m0k"]
+
+[ext_resource type="Texture2D" uid="uid://dpmq56xs5e410" path="res://assets/texture.jpg" id="1_2ue3o"]
+[ext_resource type="Script" path="res://scenes/options_panel.gd" id="1_wv0gh"]
+[ext_resource type="Texture2D" uid="uid://61p3170dma1t" path="res://assets/rick1.png" id="2_tdonk"]
+[ext_resource type="Texture2D" uid="uid://c6k4xl61l8787" path="res://assets/rick_cote1.png" id="4_nvbky"]
+
+[node name="Options_panel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wv0gh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(303, 216)
+scale = Vector2(0.333854, 0.450926)
+texture = ExtResource("1_2ue3o")
+
+[node name="VBoxContainer1" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 27.0
+offset_right = 559.0
+offset_bottom = 385.0
+
+[node name="global settings" type="Button" parent="VBoxContainer1"]
+layout_mode = 2
+text = "GLOBAL SETTINGS"
+icon = ExtResource("2_tdonk")
+
+[node name="video_settings" type="Button" parent="VBoxContainer1"]
+layout_mode = 2
+text = "Video Settings"
+
+[node name="sound_settings" type="Button" parent="VBoxContainer1"]
+layout_mode = 2
+text = "Sound Settings
+"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 375.0
+offset_right = 581.0
+offset_bottom = 415.0
+
+[node name="back" type="Button" parent="."]
+layout_mode = 2
+offset_left = 456.0
+offset_top = 370.0
+offset_right = 574.0
+offset_bottom = 410.0
+text = "Cancel"
+icon = ExtResource("4_nvbky")
+
+[connection signal="pressed" from="VBoxContainer1/global settings" to="." method="_on_global_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer1/video_settings" to="." method="_on_video_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer1/sound_settings" to="." method="_on_sound_settings_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
