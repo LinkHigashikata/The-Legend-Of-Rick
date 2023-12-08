@@ -13,6 +13,11 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2bvmn"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"roll_forward",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_n3ve0")
@@ -71,7 +76,6 @@ height = 40.6667
 
 [sub_resource type="Animation" id="Animation_22plw"]
 resource_name = "walk_up"
-length = 0.5
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6rb7o"]
 _data = {
@@ -93,7 +97,7 @@ texture_filter = 1
 position = Vector2(45, 45)
 scale = Vector2(3.8125, 3.8125)
 sprite_frames = SubResource("SpriteFrames_2bvmn")
-animation = &"walk_forward"
+animation = &"roll_forward"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
