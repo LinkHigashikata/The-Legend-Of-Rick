@@ -83,6 +83,7 @@ _data = {
 }
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2tjj7"]
+graph_offset = Vector2(-195.469, 0)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 3
