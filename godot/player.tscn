@@ -86,7 +86,7 @@ _data = {
 graph_offset = Vector2(-195.469, 0)
 
 [node name="Player" type="CharacterBody2D"]
-z_index = 4
+z_index = 5
 position = Vector2(-3, 13)
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_680kk")
