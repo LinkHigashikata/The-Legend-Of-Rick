@@ -98,7 +98,7 @@ texture_filter = 1
 position = Vector2(45, 45)
 scale = Vector2(3.8125, 3.8125)
 sprite_frames = SubResource("SpriteFrames_2bvmn")
-animation = &"roll_forward"
+animation = &"walk_forward"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
