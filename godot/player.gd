@@ -12,6 +12,12 @@ var roll_vector: Vector2 = Vector2.RIGHT
 func _ready():
 	screen_size = get_viewport_rect().size
 
+func handleCollision():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		print_debug(collider.name)
+
 func handleInput():
 	var moveDirection = Input.get_vector("go_left", "go_right", "go_up", "go_down")
 	velocity = moveDirection * speed
