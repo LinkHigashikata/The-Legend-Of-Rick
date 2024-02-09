@@ -1,4 +1,10 @@
+class_name Plaillyeure
+
 extends CharacterBody2D
+
+@export var maxHealth = 12
+@onready var currentHealth: int = maxHealth
+
 
 @export var speed: int = 400
 var screen_size
