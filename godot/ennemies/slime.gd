@@ -27,15 +27,15 @@ func _physics_process(delta):
 	updateVelocity()
 	move_and_slide()
 	if velocity.length() > 0:
-		$AnimatedSprite2D.play()
+			if velocity.x < 0:
+				$AnimationPlayer.play("left")
+			elif velocity.x > 0:
+				$AnimationPlayer.play("right")
+			elif velocity.y > 0:
+				$AnimationPlayer.play("down")
+			elif velocity.y < 0:
+				$AnimationPlayer.play("up")
 	else:
-		$AnimatedSprite2D.stop()
+		$AnimationPlayer.stop()
 		
-	if velocity.x < 0:
-		$AnimatedSprite2D.animation = "left"
-	elif velocity.x > 0:
-		$AnimatedSprite2D.animation = "right"
-	elif velocity.y > 0:
-		$AnimatedSprite2D.animation = "down"
-	elif velocity.y < 0:
-		$AnimatedSprite2D.animation = "up"
+

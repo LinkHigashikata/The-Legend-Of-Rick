@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bp8dvv2ergvet"]
+[gd_scene load_steps=18 format=3 uid="uid://bp8dvv2ergvet"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_680kk"]
 [ext_resource type="Texture2D" uid="uid://2ya1gd865uiq" path="res://assets/rick_dos.png" id="2_n3ve0"]
@@ -89,6 +89,9 @@ _data = {
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2tjj7"]
 graph_offset = Vector2(-195.469, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljor2"]
+size = Vector2(46.6667, 83.3333)
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 position = Vector2(-3, 13)
@@ -120,3 +123,13 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_2tjj7")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(43.3333, 40)
+shape = SubResource("RectangleShape2D_ljor2")
+debug_color = Color(0, 0.639216, 0.372549, 0.419608)
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

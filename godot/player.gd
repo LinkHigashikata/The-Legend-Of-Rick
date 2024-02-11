@@ -2,7 +2,9 @@ class_name Plaillyeure
 
 extends CharacterBody2D
 
-@export var maxHealth = 12
+signal HealthChanged
+
+@export var maxHealth = 4
 @onready var currentHealth: int = maxHealth
 
 
@@ -46,3 +48,19 @@ func update_roll_vector():
 	
 func set_roll_speed():
 	velocity = roll_vector * 30 * 1.5
+
+
+func _on_hurt_box_area_entered(area):
+	if area.name == "HitBox" :
+		currentHealth = currentHealth - 1
+		if currentHealth < 0 :
+			currentHealth = maxHealth
+			
+		HealthChanged.emit(currentHealth)
+	else :
+		if area.name == "Void" :
+			currentHealth = currentHealth - 1
+			if currentHealth < 0 :
+				currentHealth = maxHealth
+			
+				HealthChanged.emit(currentHealth)

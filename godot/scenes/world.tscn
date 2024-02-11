@@ -1,15 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://blw7yec1j8bem"]
+[gd_scene load_steps=15 format=3 uid="uid://blw7yec1j8bem"]
 
 [ext_resource type="PackedScene" uid="uid://bp8dvv2ergvet" path="res://player.tscn" id="1_1ssqt"]
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_tui2m"]
 [ext_resource type="Texture2D" uid="uid://cfcthqhxjbr8n" path="res://assets/tileset1.png" id="2_7nph4"]
 [ext_resource type="Script" path="res://scenes/Camera_player.gd" id="2_34gdp"]
 [ext_resource type="Texture2D" uid="uid://bstmtgd0g8hof" path="res://assets/tileset_anime1.png" id="4_mwdda"]
 [ext_resource type="Texture2D" uid="uid://vj8inerh7cec" path="res://assets/tileset_donjon.png" id="5_3et6t"]
 [ext_resource type="PackedScene" uid="uid://bpau7x5jnada0" path="res://ennemies/slime.tscn" id="6_qnjko"]
 [ext_resource type="Script" path="res://scenes/fall.gd" id="6_wd44p"]
-[ext_resource type="Script" path="res://scenes/HealthBar.gd" id="7_b82o7"]
-[ext_resource type="Texture2D" uid="uid://bkx6264cdaub6" path="res://assets/health_bar_under.png" id="8_roq6y"]
-[ext_resource type="Texture2D" uid="uid://bk0ugs3k8icfp" path="res://assets/health_bar_progress.png" id="9_t2v10"]
+[ext_resource type="PackedScene" uid="uid://tglikubtiu3o" path="res://GUI/heart_bar.tscn" id="8_8nrke"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_euss8"]
 texture = ExtResource("2_7nph4")
@@ -931,31 +930,18 @@ texture = ExtResource("5_3et6t")
 14:4/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_uwjyn"]
-physics_layer_0/collision_layer = 2
-physics_layer_0/collision_mask = 2
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_euss8")
 sources/1 = SubResource("TileSetAtlasSource_7atpl")
 sources/2 = SubResource("TileSetAtlasSource_llvtn")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpmqn"]
-size = Vector2(325, 99)
+size = Vector2(160, 217.5)
 
 [node name="World" type="Node2D"]
 position = Vector2(227, 292)
-
-[node name="Player" parent="." instance=ExtResource("1_1ssqt")]
-top_level = true
-position = Vector2(730, 125)
-disable_mode = 2
-collision_layer = 2
-collision_mask = 2
-
-[node name="Camera_player" type="Camera2D" parent="Player" node_paths=PackedStringArray("tilemap")]
-limit_smoothed = true
-position_smoothing_enabled = true
-editor_draw_screen = false
-script = ExtResource("2_34gdp")
-tilemap = NodePath("../../TileMap")
+script = ExtResource("1_tui2m")
 
 [node name="TileMap" type="TileMap" parent="."]
 process_physics_priority = 1
@@ -988,29 +974,38 @@ layer_6/name = "sur-sur-murs"
 layer_6/z_index = 5
 layer_6/tile_data = PackedInt32Array(-131090, 196610, 65539, -196626, 196610, 65538, -196627, 196610, 2, -131091, 196610, 3)
 
-[node name="CharacterBody2D" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("6_qnjko")]
-position = Vector2(624, 144)
+[node name="slime" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("6_qnjko")]
+position = Vector2(856, 232)
 scale = Vector2(2.72, 2.72)
 endPoint = NodePath("Marker2D")
 
-[node name="Marker2D" type="Marker2D" parent="TileMap/CharacterBody2D"]
-position = Vector2(66.1765, 44.1176)
+[node name="Marker2D" type="Marker2D" parent="TileMap/slime"]
+position = Vector2(-108.824, 5.88235)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Player" parent="TileMap" instance=ExtResource("1_1ssqt")]
+top_level = true
+position = Vector2(730, 125)
+disable_mode = 2
+collision_layer = 2
+collision_mask = 2
+
+[node name="Camera_player" type="Camera2D" parent="TileMap/Player" node_paths=PackedStringArray("tilemap")]
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_screen = false
+script = ExtResource("2_34gdp")
+tilemap = NodePath("../..")
+
+[node name="Void" type="Area2D" parent="TileMap"]
+scale = Vector2(0.5, 0.5)
 audio_bus_override = true
 script = ExtResource("6_wd44p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(248, -339)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Void"]
+position = Vector2(-1075, -23.25)
 shape = SubResource("RectangleShape2D_bpmqn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
-offset_right = 105.0
-offset_bottom = 16.0
+[node name="HeartBar" parent="CanvasLayer" instance=ExtResource("8_8nrke")]
 scale = Vector2(2, 2)
-texture_under = ExtResource("8_roq6y")
-texture_progress = ExtResource("9_t2v10")
-script = ExtResource("7_b82o7")
-player = NodePath("../../Player")
